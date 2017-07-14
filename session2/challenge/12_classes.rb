@@ -25,4 +25,25 @@ class Fraction
     return a if b == 0
     gcd(b, a%b)
   end
+
+  attr_accessor :numerator, :denominator
+
+  def initialize(numerator, denominator)
+    self.numerator, self.denominator = numerator, denominator
+  end
+
+  def to_f
+    numerator.to_f/denominator.to_f
+
+  end
+
+  def lowest
+    factor = gcd(numerator, denominator)
+    Fraction.new(numerator/factor, denominator/factor)
+  end
+
+  def to_s
+    string = numerator.to_s + "/" + denominator.to_s
+  end
+
 end

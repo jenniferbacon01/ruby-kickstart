@@ -14,6 +14,12 @@ class User
     self.blogs = blogs.sort_by { |blog| blog.date }.reverse
     added_blog
   end
+
+  def blogs
+
+    blogs
+
+  end
 end
 
 
