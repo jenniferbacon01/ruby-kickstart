@@ -6,7 +6,7 @@ def shared(a, b)
       puts "already has it"
     else
       hash[a[index]]=[true, nil]
-      puts "in a: #{a[index]}"
+      puts "in a: #{a[i-1]}"
     end
   end
   b.each_with_index do |j, indexb|
@@ -19,11 +19,10 @@ def shared(a, b)
       puts "in b: #{b[indexb]} j: #{j}"
     end
   end
-  nums.sort!
   answer = [hash, nums]
   p answer
   answer
 
 end
 
-shared %w(a b c d) , %w(aa b cc d)
+shared [1,2,3], [1,2,4]

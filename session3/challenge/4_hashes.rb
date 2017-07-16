@@ -5,3 +5,13 @@
 # There will be no punctuation in the strings.
 #
 # first_pos "The dog and the cat and the cow" # => {"The" => 0, "dog" => 1, "and" => 2, "the" => 3, "cat" => 4, "cow" => 7}
+def first_pos(string)
+  array = string.split(" ").reverse
+  hash = {}
+  length = array.length
+  array.each_with_index {|word, index| hash[word] = length - 1 - index }
+  puts hash
+  hash
+end
+
+#first_pos "the dog and the cat and the cow"

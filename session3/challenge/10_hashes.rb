@@ -29,5 +29,36 @@
 # create it from scratch :)
 
 
-def pathify
+def pathify(paths)
+
+  return paths.map { |path| '/' + path } if paths.is_a? Array
+
+  output_array = []
+  paths.each do |parent_path, in_folder|
+    parent_path = '/' + parent_path         # paths begin with a /
+    child_paths = pathify in_folder        # convert child directories to paths
+    child_paths.each do |child_path|        # join each child path to it's parent path
+      output_array << (parent_path + child_path)
+    end
+  end
+
+
+  # string = ""
+  # output_array = []
+  # input_hash.each do | folder, in_folder |
+  #   string << "/" + folder + "/"
+  #   while in_folder.is_a? Hash
+  #     string << in_folder.keys[0] + "/"
+  #     in_folder = in_folder.values[0]
+  #   end
+  #   in_folder.each do |file|
+  #     string << file
+  #     output_array << string
+  #     p output_array
+  #     string = string.chomp(file)
+  #     puts "folder dest: #{string}"
+  #   end
+  # end
+
+  output_array
 end

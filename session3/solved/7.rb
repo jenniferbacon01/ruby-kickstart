@@ -5,7 +5,7 @@ class HTMLTag
     :monospace  => '"Courier New", "Lucida Console"' ,
   }
 
-  COLORS = {
+  COLOR = {
     :red   => '#FF0000',
     :green => '#00FF00',
     :blue  => '#0000FF',
@@ -17,7 +17,7 @@ class HTMLTag
   def initialize(name, innerHTML, options=Hash.new)
     @name, @innerHTML = name, innerHTML
     self.font      = FONTS[options[:font]]
-    self.color     = COLORS[options[:color]]
+    self.color     = COLOR[options[:color]]
     self.multiline = options.fetch :multiline, false
   end
 
